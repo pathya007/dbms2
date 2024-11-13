@@ -1,0 +1,38 @@
+/*
+A)Design and develop a sql ddl statements which demonstrate yjr use of sql object such as table,view,
+index,sequence,synonym,different constraint,etc.
+B)Write at least 10 sql querrys on a suitable database application using sql dml statements
+*/
+           
+create table Employee (
+    Employee_Id integer(10) Not Null,
+    Employee_Name varchar(100) Not Null,
+    Designation varchar(40),
+    department varchar(40),
+    Salary float(20),
+    City varchar(30),
+    primary key(Employee_Id)
+);
+insert into Employee values (1,'Harsh','Engineer','Computer',100000,'Pune');
+insert into Employee values (2,'Amit','Engineer','Mechanical',70000,'Mumbai');
+insert into Employee values (3,'Tanay','Engineer','ENTC',90000,'Satara');
+insert into Employee values (4,'Parth','Engineer','IT',60000,'Nashik');
+insert into Employee values (5,'Omkar','Engineer','civil',50000,'Solapur');
+
+-- DELETE FROM Employee WHERE Salary = 90000;
+select Employee_NAME from Employee;
+UPDATE Employee SET Employee_NAME = 'Pratik' WHERE Salary = 70000;
+select * from employee;
+select Employee_NAME from Employee where Salary > 50000;
+select Employee_NAME from Employee where department = 'Mechanical';
+
+select Employee_NAME,City from Employee where Designation = 'Engineer';
+
+create view Employee_view as
+select Employee_Id,Employee_NAME,City from Employee where Salary > 70000;
+select * from Employee_view;
+
+ALTER TABLE Employee
+DROP COLUMN Designation;
+select * from Employee;
+
